@@ -58,7 +58,9 @@ class _Welcome_ScreenState extends State<Welcome_Screen> {
             child: Login_Widget(
               hasIcon: true,
               icon: Icons.email,
-              onTap: (){}, title: 'Sign in with Email', ),
+              onTap: (){
+                Get.to(()=>SignIn_Screen());
+              }, title: 'Sign in with Email', ),
           ),
         ],
       ),
