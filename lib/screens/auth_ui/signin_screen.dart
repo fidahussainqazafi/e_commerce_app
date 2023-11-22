@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/controller/signup_controller.dart';
 import 'package:e_commerce_app/widgets/textform_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
@@ -15,6 +16,9 @@ class SignIn_Screen extends StatefulWidget {
 }
 
 class _SignIn_ScreenState extends State<SignIn_Screen> {
+  final SignupController signupController = Get.put(SignupController());
+  final TextEditingController emailcontroller = TextEditingController();
+  final TextEditingController passwordcontroller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -41,6 +45,7 @@ class _SignIn_ScreenState extends State<SignIn_Screen> {
                 SizedBox(height: 70,),
 
                 TxtFormWidget(
+                  controller: emailcontroller,
 
                     hintxt: 'Email',
                     icn: Icon(Icons.email),
@@ -49,14 +54,14 @@ class _SignIn_ScreenState extends State<SignIn_Screen> {
                   margin: EdgeInsets.symmetric(horizontal: 10),
                   child: Padding(
                     padding: const EdgeInsets.all(10.0),
-                    child: TxtFormWidget(
+                    child: Obx(() => TxtFormWidget(
+                        controller: passwordcontroller,
+                        hasIcon: true,
+                        obscureText: signupController.isPasswordVisible.value,
                         suffixIcon: Icon(Icons.visibility),
                         hintxt: 'Password',
-
                         icn: Icon(Icons.password),
-
-
-                        keyboardtype: TextInputType.visiblePassword),
+                        keyboardtype: TextInputType.visiblePassword),)
                   ),
                 ),
                 SizedBox(height: 10,),
