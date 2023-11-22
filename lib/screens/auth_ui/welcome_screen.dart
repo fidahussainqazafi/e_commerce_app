@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/controller/google_signin_controller.dart';
 import 'package:e_commerce_app/screens/auth_ui/signin_screen.dart';
 import 'package:e_commerce_app/utils/app_const.dart';
 import 'package:e_commerce_app/widgets/login_btn_widget.dart';
@@ -12,6 +13,7 @@ class Welcome_Screen extends StatefulWidget {
 }
 
 class _Welcome_ScreenState extends State<Welcome_Screen> {
+  final GoogleSignInController googleSignInController = Get.put(GoogleSignInController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,7 +50,7 @@ class _Welcome_ScreenState extends State<Welcome_Screen> {
               icon: Icons.g_mobiledata,
 
                 onTap: (){
-                Get.to(()=>SignIn_Screen());
+               googleSignInController.signInWithGoogle();
                 }, title: 'Sign in with Google', ),
           ),
 
