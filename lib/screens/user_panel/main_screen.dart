@@ -1,5 +1,6 @@
 import 'package:e_commerce_app/screens/auth_ui/welcome_screen.dart';
 import 'package:e_commerce_app/utils/app_const.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -23,6 +24,8 @@ class _Main_ScreenState extends State<Main_Screen> {
           GestureDetector(
             onTap: () async{
               GoogleSignIn googleSignIn = GoogleSignIn();
+              FirebaseAuth _auth = FirebaseAuth.instance;
+              _auth.signOut();
               googleSignIn.signOut();
              await Get.offAll(()=>Welcome_Screen());
             },

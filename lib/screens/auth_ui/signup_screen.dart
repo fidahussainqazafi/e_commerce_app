@@ -87,7 +87,7 @@ class _SignUp_ScreenState extends State<SignUp_Screen> {
                         String userDeviceToken = '';
                         if(email.isEmpty || name.isEmpty || phone.isEmpty || city.isEmpty || password.isEmpty){
                           Get.snackbar('Error', 'Please enter all details',
-                            snackPosition: SnackPosition.TOP,
+                            snackPosition: SnackPosition.BOTTOM,
                             backgroundColor: AppConst.appSecondColor,
                             colorText: AppConst.textColor,
                           );
@@ -103,7 +103,7 @@ class _SignUp_ScreenState extends State<SignUp_Screen> {
 
                           if(userCredential != null){
                             Get.snackbar('Verification email sent', 'Please check your email',
-                            snackPosition: SnackPosition.TOP,
+                            snackPosition: SnackPosition.BOTTOM,
                                 backgroundColor: AppConst.appSecondColor,
                                 colorText: AppConst.textColor,
                             );
