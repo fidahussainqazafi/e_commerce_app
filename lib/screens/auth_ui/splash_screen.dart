@@ -1,7 +1,7 @@
 import 'dart:async';
-
 import 'package:e_commerce_app/screens/auth_ui/welcome_screen.dart';
 import 'package:e_commerce_app/utils/app_const.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -13,6 +13,7 @@ class Splash_Screen extends StatefulWidget {
 }
 
 class _Splash_ScreenState extends State<Splash_Screen> {
+  User? user = FirebaseAuth.instance.currentUser;
   @override
   void initState(){
     super.initState();
