@@ -1,5 +1,6 @@
 import 'package:e_commerce_app/screens/auth_ui/welcome_screen.dart';
 import 'package:e_commerce_app/utils/app_const.dart';
+import 'package:e_commerce_app/widgets/banner_widget.dart';
 import 'package:e_commerce_app/widgets/drawer_widget.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -99,6 +100,16 @@ class _Main_ScreenState extends State<Main_Screen> {
 
         ),
         backgroundColor: AppConst.appSecondColor,
+      ),
+      body: SingleChildScrollView(
+        physics: BouncingScrollPhysics(),
+        child: Container(
+          child: Column(
+            children: [
+              BannerWidget(),
+            ],
+          ),
+        ),
       ),
     );
   }
